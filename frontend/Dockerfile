@@ -17,7 +17,7 @@ ENV PATH /code/frontend/node_modules/.bin:$PATH
 
 # -- Copy and shrinkwrap dependencies.
 COPY package.json /code/frontend/package.json
-COPY npm-shrinkwrap.json /code/frontend/npm-shrinkwrap.json
+# COPY npm-shrinkwrap.json /code/frontend/npm-shrinkwrap.json
 
 # -- Install yarn, set cache folder, install node_modules, and cleanup.
 RUN npm install --no-progress --production
