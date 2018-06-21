@@ -9,7 +9,7 @@
      working_dir: /code/frontend
      env_file: .env
      ports:
-       - 8101:3000
+       - 8101:8080
      volumes:
        - ./frontend:/code/frontend
        - '/code/frontend/node_modules'
