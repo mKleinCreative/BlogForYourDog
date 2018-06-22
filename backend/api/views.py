@@ -14,7 +14,7 @@ class ReactAppView(View):
     def get(self, request):
         """ GET React view. """
         try:
-            with open(os.path.join(settings.REACT_APP_DIR, 'build', 'index.html')) as f:
+            with open(os.path.join(settings.REACT_APP_DIR, 'index.html')) as f:
                 return HttpResponse(f.read())
         except FileNotFoundError:
             return HttpResponseRedirect(f"{settings.REACT_APP_URL[0]}")

@@ -4,6 +4,7 @@
   "description": "Simple starter package for Redux with React and Babel support",
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "proxy": "http://0.0.0.0:8000",
   "scripts": {
     "devserver": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "watch:sass": "node-sass src/style/sass/main.scss src/style/css/style.css -w",

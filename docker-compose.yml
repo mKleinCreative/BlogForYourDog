@@ -13,6 +13,10 @@
      volumes:
        - ./frontend:/code/frontend
        - ./frontend/node_modules
+     ulimits:
+       nofile:
+         soft: 10240
+         hard: 10240
    db:
      container_name: dogblog_db
      hostname: dogblog_db
