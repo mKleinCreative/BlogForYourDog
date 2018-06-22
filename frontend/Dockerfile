@@ -1,9 +1,8 @@
-FROM node:9
+FROM node:8.9.1
 
 # -- Set env vars for setup.
 ENV NPM_CONFIG_LOGLEVEL warn
-ENV NODE_ENV=production PORT=3000
-
+ENV NODE_ENV=production PORT=8080
 
 # -- Create /code/frontend directory and add /frontend to it.
 RUN mkdir -p /code/frontend/cache
@@ -21,8 +20,6 @@ COPY package.json /code/frontend/package.json
 
 # -- Install yarn, set cache folder, install node_modules, and cleanup.
 RUN npm install --no-progress --production
-RUN yarn config set cache-folder /code/frontend/cache
-RUN yarn cache clean
 
 # -- Add frontend React app.
 ADD . /code/frontend

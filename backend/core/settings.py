@@ -135,8 +135,8 @@ REST_FRAMEWORK = {
 }
 
 REACT_APP_DIR = os.path.join(os.path.dirname(BASE_DIR), 'frontend')
-REACT_APP_URL = os.getenv("REACT_APP_URL", default="http://0.0.0.0:8101"),
+REACT_APP_URL = os.getenv("REACT_APP_URL", default="http://0.0.0.0:8080"),
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+
 ]
