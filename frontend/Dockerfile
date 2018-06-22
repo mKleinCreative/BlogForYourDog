@@ -19,7 +19,8 @@ COPY package.json /code/frontend/package.json
 # COPY npm-shrinkwrap.json /code/frontend/npm-shrinkwrap.json
 
 # -- Install yarn, set cache folder, install node_modules, and cleanup.
-RUN npm install --no-progress --production
+RUN npm install
+RUN npm rebuild node-sass --force
 
 # -- Add frontend React app.
 ADD . /code/frontend
