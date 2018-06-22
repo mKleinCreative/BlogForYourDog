@@ -54,7 +54,7 @@ Add the following `launch.json` entry:
       "request": "attach",
       "localRoot": "${workspaceRoot}",
       "remoteRoot": "/code/backend",
-      "port": 8010,
+      "port": 8000,
       "secret": "debugger-local-secret",
       "host": "localhost"
   }
