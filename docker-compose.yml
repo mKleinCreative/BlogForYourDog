@@ -12,7 +12,7 @@
        - 8080:8080
      volumes:
        - ./frontend:/code/frontend
-       - ./frontend/node_modules
+       - ./frontend/node_modules:/code/frontend/node_modules
      ulimits:
        nofile:
          soft: 10240
