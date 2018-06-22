@@ -2,7 +2,6 @@
 
 echo "[REACT] Starting $NODE_ENV server."
 npm install
-npm rebuild node-sass --force
 
 if [ ! -d /code/frontend/build ] && [ $NODE_ENV = 'production' ]; then
     echo "[BUILD] Failed to detect build folder. Running yarn build..."
