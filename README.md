@@ -47,25 +47,25 @@
 
 * Mac users may need to **increase the max open files limit** in macOS by executing the following commands:
 
-```bash
-$ sudo launchctl limit maxfiles unlimited unlimited
-$ sudo launchctl limit maxfiles
-$ ulimit -n 1024
-```
+    ```bash
+    $ sudo launchctl limit maxfiles unlimited unlimited
+    $ sudo launchctl limit maxfiles
+    $ ulimit -n 1024
+    ```
 
-For additonal information regarding `ulimit`, please visit this [Gist](https://gist.github.com/vgoma/4d33c2937447afd2fb9ae2ef781761f9).
+    For additonal information regarding `ulimit`, please visit this [Gist](https://gist.github.com/vgoma/4d33c2937447afd2fb9ae2ef781761f9).
 
 * Create a clean Docker build with verbose debugging output:
 
-```bash
-$ docker-compose --verbose up --build --abort-on-container-exit --force-recreate
-```
+    ```bash
+    $ docker-compose --verbose up --build --abort-on-container-exit --force-recreate
+    ```
 
 * Rebuild from scratch:
 
-```bash
-$ ./docker-rebuild.sh
-```
+    ```bash
+    $ ./docker-rebuild.sh
+    ```
 
 ## Debug Django via VSCode Remote Debugger
 
