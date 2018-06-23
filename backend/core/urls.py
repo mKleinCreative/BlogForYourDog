@@ -26,5 +26,5 @@ urlpatterns = [
 
     # Must be last in list.
     # Additionally, must be catch-all for pushState to work.
-    url(r'^', api_views.ReactAppView.as_view()),
+    url(r'^$', api_views.ReactAppView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

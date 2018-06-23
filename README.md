@@ -28,14 +28,18 @@
 1. Exit the Docker `bash` shell by typing `exit`.
 1. Finally...
     * **Open your browser and enter**:
-        * [http://localhost:8000](http://localhost:8000) to access the **frontend**.
+        * **[WIP]** [http://localhost:8000](http://localhost:8000) to access the **frontend**.
+        * **[WIP]** [http://localhost:8000/api](http://localhost:8000/api) to access the **graphical, interactive Django REST Framework API interface** describing available API endpoints.
         * [http://localhost:8000/admin](http://localhost:8000/admin) to access the **Django Admin interface**.
-        * [http://localhost:8000/api](http://localhost:8000/api) to access the **graphical, interactive Django REST Framework API interface** describing available API endpoints.
     * **Use cURL** in a new Terminal tab to test the backend Django API via DRF token authentication:
-        ```bash
-        $ curl -X POST -d "username=SUPERUSER_USERNAME&password=SUPERUSER_PASSWORD" http://localhost:8000/api/v1/auth/`
-        {"token":"a66bfc378fc443f33953c99c3d852bace48094c2"}%
-        ```
+        1. Visit [http://0.0.0.0:8000/admin/authtoken/token/add/](http://0.0.0.0:8000/admin/authtoken/token/add/) in your browser.
+        1. Authenticate using your superuser credentials.
+        1. Select your current User from the dropdown menu and click Save.
+        1. In your Terminal, execute:
+            ```bash
+            $ curl -X POST -d "username=SUPERUSER_USERNAME&password=SUPERUSER_PASSWORD" http://localhost:8000/api/v1/auth/`
+            {"token":"a66bfc378fc443f33953c99c3d852bace48094c2"}
+            ```
 1. Write your fancy new Django + React app!
 1. Run `docker-compose down` to safely shut down all containers for this project.
 
@@ -44,20 +48,26 @@
 * Mac users may need to **increase the max open files limit** in macOS by executing the following commands:
 
 ```bash
-sudo launchctl limit maxfiles unlimited unlimited
-sudo launchctl limit maxfiles
-ulimit -n 1024
-```
-
-* Create a clean Docker build with verbose debugging output:
-
-```bash
-docker-compose --verbose up --build --abort-on-container-exit --force-recreate
+$ sudo launchctl limit maxfiles unlimited unlimited
+$ sudo launchctl limit maxfiles
+$ ulimit -n 1024
 ```
 
 For additonal information regarding `ulimit`, please visit this [Gist](https://gist.github.com/vgoma/4d33c2937447afd2fb9ae2ef781761f9).
 
-# Debugging the Django Backend via VSCode Remote Debugger
+* Create a clean Docker build with verbose debugging output:
+
+```bash
+$ docker-compose --verbose up --build --abort-on-container-exit --force-recreate
+```
+
+* Rebuild from scratch:
+
+```bash
+$ ./docker-rebuild.sh
+```
+
+## Debug Django via VSCode Remote Debugger
 
 Add the following `launch.json` entry:
 
