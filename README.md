@@ -1,8 +1,6 @@
-# BlogForYourDog
+# 🐾 BlogForYourDog
 
 ## Prerequisites
-
-### Docker
 
 1. [Docker](https://docker.com)
 1. [docker-compose](https://docs.docker.com/compose/install/#prerequisites)
@@ -13,8 +11,6 @@
     ```
 
 ## Installation
-
-### Docker
 
 1. Clone the repo: `git clone git@github.com:mKleinCreative/BlogForYourDog`
 1. Navigate to the repo directory created in the last step: `cd BlogForYourDog`
@@ -35,15 +31,32 @@
         1. Visit [http://0.0.0.0:8000/admin/authtoken/token/add/](http://0.0.0.0:8000/admin/authtoken/token/add/) in your browser.
         1. Authenticate using your superuser credentials.
         1. Select your current User from the dropdown menu and click Save.
-        1. In your Terminal, execute:
+        1. To test authentication to the API, use the following command that returns the Token generated in the prior step. In your Terminal, run:
             ```bash
             $ curl -X POST -d "username=SUPERUSER_USERNAME&password=SUPERUSER_PASSWORD" http://localhost:8000/api/v1/auth/`
+
             {"token":"a66bfc378fc443f33953c99c3d852bace48094c2"}
             ```
 1. Write your fancy new Django + React app!
 1. Run `docker-compose down` to safely shut down all containers for this project.
 
 ## Troubleshooting
+
+### Docker
+
+* Create a **clean Docker build** with verbose debugging output:
+
+    ```bash
+    $ docker-compose --verbose up --build --abort-on-container-exit --force-recreate
+    ```
+
+* **Rebuild from scratch**:
+
+    ```bash
+    $ ./docker-rebuild.sh
+    ```
+
+### macOS
 
 * Mac users may need to **increase the max open files limit** in macOS by executing the following commands:
 
@@ -54,18 +67,6 @@
     ```
 
     For additonal information regarding `ulimit`, please visit this [Gist](https://gist.github.com/vgoma/4d33c2937447afd2fb9ae2ef781761f9).
-
-* Create a clean Docker build with verbose debugging output:
-
-    ```bash
-    $ docker-compose --verbose up --build --abort-on-container-exit --force-recreate
-    ```
-
-* Rebuild from scratch:
-
-    ```bash
-    $ ./docker-rebuild.sh
-    ```
 
 ## Debug Django via VSCode Remote Debugger
 
